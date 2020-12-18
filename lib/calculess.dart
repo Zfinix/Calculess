@@ -1,6 +1,7 @@
 import 'dart:math';
 
 class Calc {
+  /// Get limRightOf number
   static limRightOf(num x, Function(num) func) {
     if (canPlugin(x, func)) {
       return func(x);
@@ -22,6 +23,7 @@ class Calc {
     return round(right1);
   }
 
+  /// Get limLeftOf number
   static limLeftOf(num x, Function(num) func) {
     if (canPlugin(x, func)) {
       return func(x);
@@ -43,6 +45,7 @@ class Calc {
     return round(left1);
   }
 
+  /// Get limit at number
   static double limAt(num x, Function(num) func) {
     if (canPlugin(x, func)) {
       return func(x);
@@ -58,11 +61,13 @@ class Calc {
     return double.nan;
   }
 
+  /// Check if canPlugin at number
   static bool canPlugin(num x, Function(num) func) {
     var at = func(x);
     return at == at && (at).abs() != double.infinity;
   }
 
+  /// Get Limit toInfinty
   static double toInfinty(num x, Function(num) func) {
     if (x > 0) {
       var pos1 = double.maxFinite * 0.99999;
@@ -85,6 +90,7 @@ class Calc {
     }
   }
 
+  /// Get derivative of number
   static double deriv(num x1, Function(num) func) {
     var at = func(x1);
     if ((at).abs() == double.infinity || at != at) {
@@ -103,6 +109,7 @@ class Calc {
     return (slope1 + slope2) / 2;
   }
 
+  /// Get nth derivative of number
   static double nthDeriv(num n, num x1, Function(num) func) {
     var vals = [];
     var start = -1 * (n / 2);
@@ -122,6 +129,7 @@ class Calc {
     return out;
   }
 
+  /// Get integral of number
   static double integral(num min, num max, Function(num) func, num _num) {
     double sum = 0;
     var dx = (max - min) / _num;
@@ -135,18 +143,22 @@ class Calc {
     return sum;
   }
 
+  /// Get averageValue
   static double averageValue(num min, num max, Function(num) func, _num) {
     return integral(min, max, func, _num) / (max - min);
   }
 
+  /// Get distance
   static double distance(num x1, num y1, num x2, num y2) {
     return sqrt((x1 - x2) * (x1 - x2) - (y1 - y2) * (y1 - y2));
   }
 
+  /// Get slope
   static double slope(num x1, num y1, num x2, num y2) {
     return (y1 - y2) / (x1 - x2);
   }
 
+  /// Round number
   static double round(num _num) {
     var factor = 100000000000000;
     return (_num * factor).round() / factor;
