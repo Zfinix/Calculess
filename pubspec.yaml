@@ -1,0 +1,10 @@
+name: calculess
+description: A simple calculus library for javascript and NPM ported to dart.
+version: 1.0.0
+homepage: https://github.com/Zfinix/calculess
+
+environment:
+  sdk: ">=2.9.0 <3.0.0"
+
+dependencies:
+  test: ^1.15.7
