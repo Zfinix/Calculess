@@ -1,9 +1,10 @@
-# Calculess.js
+# Calculess.dart
 A Dart port for calculus library in dart and NPM. Originally Created by [Blake Sanie](https://github.com/blakesanie/Calculess/).
 
 
 # Getting Started
 Import and initialize package
+
 ```dart
 import 'package:calculess/calculess.dart';
 ```
